@@ -55,9 +55,6 @@
   "group/music_player": {
     "orientation": "horizontal",
     "modules": [
-      "custom/playerctl#backward",
-	  	"custom/playerctl#play",
-	  	"custom/playerctl#foward",
 	  	"custom/playerlabel"
     ]
   },
@@ -65,8 +62,8 @@
   "group/window_stuff": {
     "orientation": "horizontal",
     "modules": [
+      "hyprland/window",
       "hyprland/workspaces"
-      /* "hyprland/window" */
     ]
   },
 
@@ -84,12 +81,6 @@
     "format": "{}%  "
   },
 
-  "temperature": {
-    "critical-threshold": 80,
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": ["", "", ""]
-  },
-
   "battery": {
     "states": {
       "warning": 30,
@@ -97,7 +88,7 @@
     },
     "format": "{icon}  {capacity}%",
     "format-full": "{icon}  {capacity}%",
-    "format-charging": "  {capacity}%",
+    "format-charging": " {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""]
@@ -118,8 +109,8 @@
 
   "pulseaudio": {
     "format": "{icon}  {volume}%",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
-		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 1%-",
+		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 1%+",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": "",
@@ -148,33 +139,6 @@
     ]
   },
 
-  /* "custom/playerctl#backward": {
-		"format": " 󰒮 ",
-		"on-click": "playerctl previous",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
-		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
-		"tooltip": false
-	},
-	"custom/playerctl#foward": {
-		"format": " 󰒭 ",
-		"on-click": "playerctl next",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
-		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
-		"tooltip": false
-	},
-	"custom/playerctl#play": {
-		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-		"format": "{icon}",
-		"format-icons": {
-			"Paused": "<span>  </span>",
-			"Playing": "<span>  </span>",
-			"Stopped": "<span>  </span>"
-		  },
-		"on-click": "playerctl play-pause",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
-		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
-		"return-type": "json"
-	}, */
 	"custom/playerlabel": {
 		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
 		"format": "<span> 󰎈 {} </span>",
