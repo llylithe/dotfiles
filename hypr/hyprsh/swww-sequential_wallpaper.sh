@@ -16,6 +16,8 @@ next_index=$(((last_index + 1) % total))
 
 next_wallpaper="${wallpapers[$next_index]}"
 
-swww img "$next_wallpaper" --transition-step 80 --transition-fps 150 --transition-type fade --transition-duration 15
+awww img "$next_wallpaper" --transition-step 80 --transition-fps 150 --transition-type any --transition-duration 3
+
+wal -i "$next_wallpaper"
 
 echo "$next_index" >"$state_file"
